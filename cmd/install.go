@@ -30,6 +30,10 @@ func runInstall(_ *cobra.Command, _ []string) error {
 		return err
 	}
 
+	if err := ensureWorkingDir(path.Join(faasdwd, "nats")); err != nil {
+		return err
+	}
+
 	if err := ensureWorkingDir(faasdProviderWd); err != nil {
 		return err
 	}
